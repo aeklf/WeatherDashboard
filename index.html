@@ -43,8 +43,86 @@
             </div>
         </section>
 
+        <section class="resultsPanel">
+            <div class="currentConditionsPanel">
+                    <div class="nameBlock">
+                        <h3 id="cityName"></h3>
+                        <img src="" alt="" id="currentIcon">
+                    </div>
+                    <div>
+                        <p class="currentInfo" id="temperature"></p>
+                    </div>
+                    <div>
+                        <p class="currentInfo" id="humidity"></p>
+                    </div>
+                    <div>
+                        <p class="currentInfo" id="windSpeed"></p>
+                    </div>
+                    <div class="uvIndexBlock">
+                        <p>UV Index:</p>
+                        <p class="roundedCurrentInfo" id="uvIndex"></p>
+                    </div>
+            </div>
+            <div class="forecastPanel">
+                <h4>5-Day Forecast:</h4>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="cardHeader">
+                                    <h5 id="day0"></h5>
+                                </div>
+                                <div class="cardBody">
+                                    <img src="" alt="" id="img-0">
+                                    <p class="cardText" id="temp-0"></p>
+                                    <p class="cardText" id="hum-0"></p>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="cardHeader">
+                                <h5 id="day-2"></h5>
+                            </div>
+                            <div class="cardBody">
+                                <img src="" alt="" id="img-2">
+                                <p class="cardText" id="temp-2"></p>
+                                <p class="cardText" id="hum-2"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="cardHeader">
+                                <h5 id="day-3"></h5>
+                            </div>
+                            <div class="cardBody">
+                                <img src="" alt="" id="img-3">
+                                <p class="cardText" id="temp-3"></p>
+                                <p class="cardText" id="hum-3"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="cardHeader">
+                                <h5 id="day-4"></h5>
+                            </div>
+                            <div class="cardBody">
+                                <img src="" alt="" id="img-4">
+                                <p class="cardText" id="temp-4"></p>
+                                <p class="cardText" id="hum-4"></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 </html>
