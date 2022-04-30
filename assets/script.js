@@ -122,3 +122,55 @@ $(".cityListBox").on("click", ".cityName", function() {
 
     getListCity(coordinates);
 })
+
+// Forecast (FutureWeather)
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + cityLat + '&lon=' + cityLon + '&appid=e8c8b48dffef0feabe49e481c93904fa&units=imperial')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+        var uvIndex = document.getElementById('uvIndex');
+        var getIndex = data.daily[0].uvi;
+        uvIndex.innerHTML = getIndex
+
+        if(getIndex < 2) {
+            uvIndex.style.backgroundColor = "lightsteelblue";
+
+        } else if(getIndex < 7, getIndex > 3) {
+            uvIndex.style.backgroundColor = "lightgrey";
+        } else {
+            uvIndex.style.backgroundColor = "lightslategrey"
+        }
+        
+
+        for(let i = 1; i < 6; i++) {
+            var temp1 = document.getElementById('temp' + i);
+            var temp4 = data.daily[i].temp.day;
+            temp1.innerHTML = 'Temp: ' + temp4 + '°F'
+
+            var humidity1 = document.getElementById('humidity' + i);
+            var humidity4 = data.daily[i].humidity;
+            humidity1.innerHTML ='Humidity: ' + humidity4 + '%'
+
+            var icon1 = document.getElementById('icon' + i);
+            var icon = data.daily[i].weather[0].icon;
+            var img = document.createElement('img')
+            img.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + ".png");
+            icon1.appendChild(img);
+
+            var date1 = document.getElementById('date' + i)
+            var date4 = data.daily[i].dt *1000
+            var newDate = new Date(date4).toLocaleDateString("en-US")
+            date1.innerHTML = newDate
+
+       }
+    })
+
+button.addEventListener('click', function() {
+   
+    city();  
+    
+    localStorage.setItem('City', JSON.stringify(arr));
+    arr.push(inputValue.value);
+    addLi();
+    
+})
