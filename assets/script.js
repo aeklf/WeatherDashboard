@@ -81,5 +81,44 @@ function getFutureWeather(data) {
         var currentSelector = "#day-" + i;
         $(currentSelector)[0].textContent = futureWeather.date;
         currentSelector = "#img-" + i;
+        $(currentSelector)[0].src = futureWeather.icon;
+        currentSelector = "#temp-" + i;
+        $(currentSelector)[0].textContent = "Temp: " + futureWeather.temp + "\u2109";
+        currentSelector = "#hum-" + i;
+        $(currentSelector)[0].textContent = "Humidity: " + futureWeather.humidity + "%";
     }
 }
+
+// Casing for Location
+function titleCase(city) {
+    var updatedCity = city.toLowerCase().split(" ");
+    var returnedCity = "";
+    for (var i = 0; i < updatedCity.length; i++) {
+        updatedCity[i] = updatedCity[i][0].toUpperCase() + updatedCity[i].slice(1);
+        returnedCity += "" + updatedCity[i];
+    }
+    return returnedCity;
+}
+
+// Formatting for Time
+function convertUnixTime(data, index) {
+    const dateObject = new Date(data.daily[index + 1].dt * 1000);
+
+    return (dateObject.toLocaleDateString());
+}
+
+$("#searchButton").on("click", function (e) {
+    e.preventDefault();
+    findCity();
+    $("form")[0].reset();
+})
+
+$(".cityListBox").on("click", ".cityName", function() {
+    var coordinates = (localStorage.getItem($(this)[0].textContent)).split(" ");
+    coordinates[0] = parseFloat(coordinates[0]);
+    coordinates[1] = parseFloat(coordinates[1]);
+
+    $("#cityName")[0].textContent = $(this)[0].textContent + "(" + moment().format("DD/MM/YYYY") + ")";
+
+    getListCity(coordinates);
+})
