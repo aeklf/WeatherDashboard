@@ -43,3 +43,85 @@ section {
   visibility: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.currentConditionsPanel {
+  border: 1px solid lightblue;
+  border-right: none;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
+
+.nameBlock,
+.uvIndexBlock {
+  display: flex;
+  align-items: center;
+}
+
+#uvIndex {
+  margin-left: 5px;
+  padding: 5px 10px;
+}
+
+.forecastPanel {
+  padding-top: 50px;
+}
+
+.container {
+  display: inline;
+}
+
+.cardHeader,
+.cardBody {
+  text-align: center;
+}
+
+.cardHeader {
+  background-color: cornflowerblue;
+  color: cornsilk;
+}
+
+.cardBody {
+  background-color: lightblue;
+}
+
+/* Classes for Sp. Elements */
+
+.favorable {
+  background-color: lightsteelblue;
+  color: black;
+}
+
+.moderate {
+  background-color: lightgrey;
+  color: black;
+}
+
+.severe {
+  background-color: lightslategrey;
+  color: black;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 575px) {
+  .searchPanel {
+    width: 40%;
+  }
+
+  .searchButtonPanel {
+    margin-left: 0px;
+  }
+
+  .searchPanel h3 {
+    font-size: 15px;
+  }
+
+  .form-row {
+    display: block;
+    text-align: center;
+  }
+
+  .resultsPanel {
+    width: 60%;
+  }
+}
